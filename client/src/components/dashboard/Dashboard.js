@@ -4,8 +4,8 @@ import "@fortawesome/fontawesome-free/css/all.css";
 import "react-datetime/css/react-datetime.css";
 
 import React from // useState,
-//  useRef,
-"react";
+  //  useRef,
+  "react";
 import { Button, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
@@ -23,7 +23,7 @@ import bootstrapPlugin from "@fullcalendar/bootstrap";
 const Dashboard = () => {
   const { loading, data } = useQuery(GET_ALL_JOBS);
   // let allJobData = "";
-  const allJobData = data?.jobs || [] ;
+  const allJobData = data?.jobs || [];
 
   if (loading) {
     console.log("Loading");
@@ -42,14 +42,6 @@ const Dashboard = () => {
           <h4>Job Completed</h4>
           <p>{allJobData.length} Jobs</p>
         </div>
-        {/* <div className="incomBox">
-          <h4> Total of Income</h4>
-          <p>2000 $</p>
-        </div>
-        <div className="incomBox">
-          <h4> Total of Outcome</h4>
-          <p>350 $</p>
-        </div> */}
       </Container>
       <div className="rightSide">
         <div className="medSection">
@@ -87,8 +79,8 @@ const Dashboard = () => {
                     return (
                       <li className="joblist" key={jobs._id}>
                         <div>
-                        <h5 key={jobs.title}>{jobs.title}</h5>
-                        <p>{jobs.job_description}</p>
+                          <h5 key={jobs.title}>{jobs.title}</h5>
+                          <p>{jobs.job_description}</p>
                         </div>
                         <div>
                           <div className="d-grid gap-2 d-md-block text-center">

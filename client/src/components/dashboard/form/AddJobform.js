@@ -30,8 +30,8 @@ const AddJobForm = (onJobAdded) => {
 
     try {
       console.log({
-                variables: {
-          
+        variables: {
+
           title: titleValue,
           job_description,
           street_address,
@@ -45,24 +45,7 @@ const AddJobForm = (onJobAdded) => {
         },
       })
 
-      // const { data } = await addJob({
-      //   variables: {
-          
-      //     title: titleValue,
-      //     job_description,
-      //     street_address,
-      //     postal_code,
-      //     safety_police_check,
-      //     safety_double_vax,
-      //     safety_mask,
-      //     have_equipment_employer,
-      //     need_equipment_worker,
-      //     have_pets
-      //   },
-      // });
 
-      // history.push(`/dashboard/${data.addJob.title}`);
-      // window.location.reload();
     } catch (err) {
       console.error(err);
     }
@@ -85,7 +68,6 @@ const AddJobForm = (onJobAdded) => {
     const idArr = id.split("-");
     if (idArr.length === 2) {
       const boolVal = idArr[1] === 'true';
-      // console.log(boolVal, typeof boolVal)
       setNeed_equipment_worker(boolVal)
     }
   }
@@ -96,7 +78,6 @@ const AddJobForm = (onJobAdded) => {
     const idArr = id.split("-");
     if (idArr.length === 2) {
       const boolVal = idArr[1] === 'true';
-      // console.log(boolVal, typeof boolVal)
       setHave_equipment_employer(boolVal)
     }
   }
@@ -107,7 +88,6 @@ const AddJobForm = (onJobAdded) => {
     const idArr = id.split("-");
     if (idArr.length === 2) {
       const boolVal = idArr[1] === 'true';
-      // console.log(boolVal, typeof boolVal)
       setHave_pets(boolVal)
     }
   }
@@ -118,7 +98,6 @@ const AddJobForm = (onJobAdded) => {
     const idArr = id.split("-");
     if (idArr.length === 2) {
       const boolVal = idArr[1] === 'true';
-      // console.log(boolVal, typeof boolVal)
       setSafety_mask(boolVal)
     }
   }
@@ -149,7 +128,7 @@ const AddJobForm = (onJobAdded) => {
       setStreet_address(value);
     } else if (name === 'postl') {
       setPostal_code(value);
-    } 
+    }
   };
 
   return (
@@ -182,27 +161,27 @@ const AddJobForm = (onJobAdded) => {
           </Form.Group>
         </Row>
         <Row>
-        <Form.Group className="mb-1" id="formGridCheckbox">
-                <Form.Label>Police Check</Form.Label>
-                <Col sm={10}>
-                  <Form.Check
-                    type="radio"
-                    label="YES"
-                    name="police"
-                    title="YES"
-                    id="police-true"
-                    onChange={handlePoliceCheckbox}
-                  />
-                  <Form.Check
-                    type="radio"
-                    label="NO"
-                    title="YES"
-                    name="police"
-                    id="police-false"
-                    onChange={handlePoliceCheckbox}
-                  />
-                </Col>
-              </Form.Group>
+          <Form.Group className="mb-1" id="formGridCheckbox">
+            <Form.Label>Police Check</Form.Label>
+            <Col sm={10}>
+              <Form.Check
+                type="radio"
+                label="YES"
+                name="police"
+                title="YES"
+                id="police-true"
+                onChange={handlePoliceCheckbox}
+              />
+              <Form.Check
+                type="radio"
+                label="NO"
+                title="YES"
+                name="police"
+                id="police-false"
+                onChange={handlePoliceCheckbox}
+              />
+            </Col>
+          </Form.Group>
 
         </Row>
         <Row>
@@ -247,7 +226,7 @@ const AddJobForm = (onJobAdded) => {
           </Form.Group>
         </Row>
 
-        <hr/>
+        <hr />
         <h4 className="mt-4">Utilty Information</h4>
 
 
@@ -299,25 +278,25 @@ const AddJobForm = (onJobAdded) => {
         <h4>Health Information</h4>
         <Row>
           <Form.Group className="mb-1" id="formGridCheckbox">
-                <Form.Label>Fully Vacinated</Form.Label>
-                <Col sm={10}>
-                  <Form.Check
-                    type="radio"
-                    label="YES"
-                    name="vax"
-                    data-vax="yes"
-                    id="vax-true"
-                    onChange={handleVaxCheckbox}
-                  />
-                  <Form.Check
-                    type="radio"
-                    label="NO"
-                    name="vax"
-                    id="vax-false"
-                    onChange={handleVaxCheckbox}
-                  />
-                </Col>
-              </Form.Group>
+            <Form.Label>Fully Vacinated</Form.Label>
+            <Col sm={10}>
+              <Form.Check
+                type="radio"
+                label="YES"
+                name="vax"
+                data-vax="yes"
+                id="vax-true"
+                onChange={handleVaxCheckbox}
+              />
+              <Form.Check
+                type="radio"
+                label="NO"
+                name="vax"
+                id="vax-false"
+                onChange={handleVaxCheckbox}
+              />
+            </Col>
+          </Form.Group>
         </Row>
         <Row>
           <Form.Group className="mb-1" id="formGridCheckbox">
@@ -340,16 +319,16 @@ const AddJobForm = (onJobAdded) => {
             </Col>
           </Form.Group>
         </Row>
-        <hr/>
+        <hr />
         <Link to="/dashboard">
-        <Button variant="primary" type="submit" onClick={() => handleFormSubmit()}>
-          Submit
-        </Button>
+          <Button variant="primary" type="submit" onClick={() => handleFormSubmit()}>
+            Submit
+          </Button>
         </Link>
         <Link to="/dashboard">
-        <Button variant="dark" type="submit">
-          Back to Dashborad
-        </Button>
+          <Button variant="dark" type="submit">
+            Back to Dashborad
+          </Button>
         </Link>
       </Form>
     </Container>

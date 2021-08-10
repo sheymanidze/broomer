@@ -64,33 +64,35 @@
 
 # Functionality
 
-GraphQL:
-Through MongoDB, Node.js, and Express.js, this project runs GraphQL to provide dynamic data to the front end. The following is a breakdown of its queries and mutations:
+ GraphQL:
+ Through MongoDB, Node.js, and Express.js, this project runs GraphQL to provide dynamic data to the front end. The following is a breakdown of its queries and mutations:
 
 # Queries
-- **Return all existing users**: `users`: all signed up users appear in this list
-- **Return all existing jobs**: `jobs`: these range from unmatched to closed cases.
-- **Return a specific job**: `specificJob`: Requires the job's jobId
-- **Return all of the user's info**: `me`: Returns their profile/dashboard information, including all jobs they've worked or hired for, and all reviews. 
-- **Jobs with no match**: `pullOpenJobs`: where jobCaseOpen has a value but jobCaseStart does not
-- **Jobs in progress**: `inProgress`: where jobCaseStart has a value but JobCaseEnd does not
-- **Jobs with no review**: `noReviews`: i.e., with dateJobEndWorker and dateJobEndEmployer but no dateJobCaseClosed - will appear in the ‘Jobs Completed’ section of the dashboard
+
+ * Return all existing users**: `users`: all signed up users appear in this list
+ * Return all existing jobs**: `jobs`: these range from unmatched to closed cases.
+ * Return a specific job**: `specificJob`: Requires the job's jobId
+ * Return all of the user's info**: `me`: Returns their profile/dashboard information, including all jobs they've worked or hired for, and all reviews. 
+ * Jobs with no match**: `pullOpenJobs`: where jobCaseOpen has a value but jobCaseStart does not
+ * Jobs in progress**: `inProgress`: where jobCaseStart has a value but JobCaseEnd does not
+ * Jobs with no review**: `noReviews`: i.e., with dateJobEndWorker and dateJobEndEmployer but no dateJobCaseClosed - will appear in the ‘Jobs Completed’ section of the dashboard
 
 
 # Mutation Timeline
-- **Create the user**: `createUser`: Provide the username, email, and password to create a User type
-- **Login**: `login`: Enter your registered credentials into the login form
-- **Update the user**: `profileDetails`: While logged in, the user will update their profile and provide details such as first_name, last_name, date_of_birth
-- **Create a job**: `addAJob`: After providing the profile information, a user can create a job; the Job type returned includes the _id and the username of the Employer/User who submitted the mutation.
-- **Fill out job information**: `updateAJob`: The employer then fills out the mandatory information (is blocked by front-end, not by GraphQL, if not filled out). The description, and safety-related accommodation booleans are updated. The `dateCaseStart` variable is timestamped with `Date.now()`.
-- **Worker agrees to a job**: `workerAgreeJob`. A different user - the worker - agrees to a job (no additional vetting required), at which point the `dateJobStart` variable is updated to `Date.now()`. 
-- **Worker submits job for review**: `workerCompleteJob`: When the worker is finished, they submit their work as completed; the `dateJobEndWorker` variable gets timestamped to `Date.now()`
-- **Employer approves job as complete**: `employerCompleteJob`. The employer agrees that the job is complete. The `dateJobEndEmployer` variable gets timestamped to `Date.now()`
-**Both parties submit reviews**: `addReviewWorker`: Separately, the worker and the employer may submit their review score and explanatory text. These get added to their associated Job type and `closeJobCase` gets updated to `Date.now()`. So far, as the code is set up, only the worker can add a review to a job. 
 
- -React
+ * Create the user**: `createUser`: Provide the username, email, and password to create a User type
+ * Login**: `login`: Enter your registered credentials into the login form
+ * Update the user**: `profileDetails`: While logged in, the user will update their profile and provide details such as first_name, last_name, date_of_birth
+ * Create a job**: `addAJob`: After providing the profile information, a user can create a job; the Job type returned includes the _id and the username of the Employer/User who submitted the mutation.
+ * Fill out job information**: `updateAJob`: The employer then fills out the mandatory information (is blocked by front-end, not by GraphQL, if not filled out). The description, and safety-related accommodation booleans are updated. The `dateCaseStart` variable is timestamped with `Date.now()`.
+ * Worker agrees to a job**: `workerAgreeJob`. A different user - the worker - agrees to a job (no additional vetting required), at which point the `dateJobStart` variable is updated to `Date.now()`. 
+ * Worker submits job for review**: `workerCompleteJob`: When the worker is finished, they submit their work as completed; the `dateJobEndWorker` variable gets timestamped to `Date.now()`
+ * Employer approves job as complete**: `employerCompleteJob`. The employer agrees that the job is complete. The `dateJobEndEmployer` variable gets timestamped to `Date.now()`
+ * Both parties submit reviews**: `addReviewWorker`: Separately, the worker and the employer may submit their review score and explanatory text. These get added to their associated Job type and `closeJobCase` gets updated to `Date.now()`. So far, as the code is set up, only the worker can add a review to a job. 
 
- -APIs
+ * React
+
+ * APIs
  
 # Contributing
 
@@ -109,7 +111,14 @@ Through MongoDB, Node.js, and Express.js, this project runs GraphQL to provide d
 # Application Code
 
   To view application code, please follow the link:
-  https://github.com/Broomer-Cleaning/broomer.git 
+  [https://github.com/sheymanidze/broomer](https://github.com/sheymanidze/broomer)
 
 # Future Developments
- 
+ * Security
+   * Users can fill forms for background checks and have forms verified.
+ * Complete job process 
+  * Workers can view a job’s specific details and apply to it. After that, the worker is given the address and the timeframe. After working, both the worker and employer confirm that the job is complete and exchange public reviews.
+ * Map API 
+   * Show job locations and base recommended jobs by distance.
+ * Wide Job Search 
+   * Use search bar to find available jobs close to you, searchable by categories.
