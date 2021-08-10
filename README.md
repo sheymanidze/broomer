@@ -11,7 +11,6 @@
  * [Questions](#Questions)
  * [Deployment of application](#Deployment-of-application)
  * [Application Code](#Application-Code)
- * [Screenshots](#Screenshots)
  * [Future Developments](#Future-Developments)
 
 # Description
