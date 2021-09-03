@@ -41,6 +41,9 @@ const Testimonials = () => {
       }
     })
 
+    console.log(currentValue)
+    console.log(reviews.body)
+
 
 
   };

@@ -3,6 +3,8 @@ import React from 'react'
 import { useQuery } from "@apollo/client";
 import { GET_ME } from "../../utils/queries"
 
+import Testimonials from './Testimonials';
+
 
 
 import "./reviews.css";
@@ -30,11 +32,20 @@ const ReviewsCarousel = () => {
       jobs_worked.forEach(job => {
         const reviewObj = {
           review: job.review_text_worker,
-
+          stars: job.review_score_worker
         }
+
+        console.log(reviewObj)
+
 
         reviewsArr.push(reviewObj)
       });
+
+
+
+      // console.log(reviewsArr)
+      // console.log(Object.keys())
+      console.log(userData)
 
     }
   }
@@ -52,6 +63,7 @@ const ReviewsCarousel = () => {
         <img src={avatar1} alt="Slavic O" />
         <div className="myCarousel">
           <h3>{userData.first_name}  {userData.last_name}</h3>
+
           <p>{userData.review_score_worker} Stars</p>
           <p>{userData.review_text_worker}</p>
         </div>
