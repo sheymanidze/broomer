@@ -35,6 +35,8 @@ const ReviewsCarousel = () => {
           stars: job.review_score_worker
         }
 
+        console.log()
+
         console.log(reviewObj)
 
 
@@ -43,7 +45,7 @@ const ReviewsCarousel = () => {
 
 
 
-      // console.log(reviewsArr)
+      console.log(reviewsArr)
       // console.log(Object.keys())
       console.log(userData)
 
