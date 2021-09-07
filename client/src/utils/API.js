@@ -26,3 +26,6 @@ export const loginUser = (userData) => {
     body: JSON.stringify(userData),
   });
 };
+
+//serch for available jobs
+//export const searchJobs = (query) => { return fetch()}
